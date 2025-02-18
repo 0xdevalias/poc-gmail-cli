@@ -1,0 +1,38 @@
+{
+  "name": "poc-gmail-cli",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Glenn 'devalias' Grant <glenn@devalias.net>",
+  "license": "MIT",
+  "homepage": "https://github.com/0xdevalias/poc-gmail-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xdevalias/poc-gmail-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0xdevalias/poc-gmail-cli/issues"
+  },
+  "type": "module",
+  "exports": {
+    "import": "./poc-gmail-cli.ts",
+    "require": "./poc-gmail-cli.ts"
+  },
+  "main": "poc-gmail-cli.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "@googleapis/gmail": "^0.3.4",
+    "dotenv": "^16.0.1",
+    "open": "^8.4.0",
+    "zx": "^7.0.5"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.2.207",
+    "@tsconfig/node16-strictest-esm": "^1.0.3",
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.8.1",
+    "tsx": "^3.12.1"
+  }
+}
