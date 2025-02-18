@@ -1,17 +1,23 @@
-import fs from "fs";
+import fs from 'fs'
 
-import { config as dotenvConfig } from 'dotenv';
-import {ArgumentsCamelCase, Argv, CommandModule, InferredOptionTypes, Options} from "yargs";
+import { config as dotenvConfig } from 'dotenv'
+import {
+  ArgumentsCamelCase,
+  Argv,
+  CommandModule,
+  InferredOptionTypes,
+  Options,
+} from 'yargs'
 
-import { parse as parseJson } from 'json5';
+import { parse as parseJson } from 'json5'
 
 export interface CLIConfig {
   'google-credentials-json'?: string
 }
 
 export type CLIConfigOptions<T extends Record<string, any> = CLIConfig> = {
-  [Key in keyof Required<T>]: Options;
-};
+  [Key in keyof Required<T>]: Options
+}
 
 /**
  * TODO: Make this work so that we can pass an explicit type for the 2nd generic argument of CommandModule
@@ -20,7 +26,7 @@ export type CLIConfigOptions<T extends Record<string, any> = CLIConfig> = {
  *
  * @example TODO: figure out how to make this work with all the example code commented out below
  */
-export type CommandModuleWithConfig = CommandModule<CLIConfigOptions, {}>;
+export type CommandModuleWithConfig = CommandModule<CLIConfigOptions, {}>
 // export type CommandModuleWithConfig<ExtendedOptions = {}> = CommandModule<CLIConfigOptions, CLIConfigOptions & ExtendedOptions>;
 
 // export const fooCommand: CommandModuleWithConfig = {
@@ -100,20 +106,20 @@ export const configOptions: CLIConfigOptions = {
     type: 'string',
     default: '/etc/passwd',
     demandOption: true,
-  }
+  },
 }
 
 export const loadAndParseCLIConfig = (configPath: string): CLIConfig => {
   // TODO: move this parsing function into src/lib/config.ts and then import it from there
   console.log('Config:', configPath)
 
-  let parsedConfig: CLIConfig = {};
+  let parsedConfig: CLIConfig = {}
   try {
-    const configFile = fs.readFileSync(configPath, 'utf-8');
-    parsedConfig = parseJson(configFile) as CLIConfig; // TODO: remove this 'as' cast and do proper validation
+    const configFile = fs.readFileSync(configPath, 'utf-8')
+    parsedConfig = parseJson(configFile) as CLIConfig // TODO: remove this 'as' cast and do proper validation
   } catch (error) {
-    console.error('Error parsing the config file:', error);
-    throw new Error('Invalid config file format.');
+    console.error('Error parsing the config file:', error)
+    throw new Error('Invalid config file format.')
   }
 
   return parsedConfig
