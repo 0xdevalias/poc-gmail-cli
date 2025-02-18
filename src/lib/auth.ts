@@ -20,7 +20,7 @@ if (!credentialsPath) {
 
 // TODO: Move this to one of the main CLI files that loads config?
 const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
-const TOKEN_PATH = path.join(__dirname, '../token.json');
+const TOKEN_PATH = path.join(__dirname, '../../token.json');
 const OOB_URI = 'urn:ietf:wg:oauth:2.0:oob';
 
 // TODO: Move this to one of the main CLI files that loads config
