@@ -2,7 +2,7 @@
   "name": "poc-gmail-cli",
   "version": "0.0.1",
   "description": "",
-  "author": "Glenn 'devalias' Grant <glenn@devalias.net>",
+  "author": "Glenn 'devalias' Grant (https://devalias.net/)",
   "license": "MIT",
   "homepage": "https://github.com/0xdevalias/poc-gmail-cli#readme",
   "repository": {
@@ -12,27 +12,26 @@
   "bugs": {
     "url": "https://github.com/0xdevalias/poc-gmail-cli/issues"
   },
-  "type": "module",
-  "exports": {
-    "import": "./poc-gmail-cli.ts",
-    "require": "./poc-gmail-cli.ts"
-  },
-  "main": "poc-gmail-cli.ts",
+  "main": "index.js",
   "scripts": {
+    "start": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@google-cloud/local-auth": "^2.1.0",
-    "@googleapis/gmail": "^0.3.4",
-    "dotenv": "^16.0.1",
-    "open": "^8.4.0",
-    "zx": "^7.0.5"
+    "dotenv": "^16.3.1",
+    "google-auth-library": "^8.9.0",
+    "googleapis": "^120.0.0",
+    "install": "^0.13.0",
+    "json5": "^2.2.3",
+    "node-fetch": "^3.3.1",
+    "prompts": "^2.4.2",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@swc/core": "^1.2.207",
-    "@tsconfig/node16-strictest-esm": "^1.0.3",
-    "@types/node": "^18.0.0",
-    "ts-node": "^10.8.1",
-    "tsx": "^3.12.1"
+    "@tsconfig/node16": "^16.1.0",
+    "@types/prompts": "^2.4.4",
+    "@types/yargs": "^17.0.24",
+    "prettier": "^2.8.8",
+    "tsx": "^3.12.7"
   }
 }
